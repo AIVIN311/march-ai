@@ -1,3 +1,4 @@
 output/
 server.out
 server.err
+.playwright-cli/
