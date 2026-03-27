@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Match AI | 先理解，再介紹</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="app-glow app-glow-left" aria-hidden="true"></div>
+  <div class="app-glow app-glow-right" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <section class="app-frame" aria-label="授權式相遇系統原型">
+      <header class="app-header">
+        <div class="app-header-copy">
+          <p class="app-eyebrow">Match AI</p>
+          <h1>不是滑卡配對，而是先理解再介紹。</h1>
+          <p class="app-hero-subtitle">用授權式理解與低頻提案，讓相遇從一段真實開始。</p>
+          <p class="app-hero-note">先留下一小段近況，系統才會慢慢長出一封提案，再進入交換與對話。</p>
+        </div>
+        <button class="button button-ghost" type="button" data-action="go-home" id="home-button" hidden>回到首頁</button>
+      </header>
+
+      <section class="app-entry" id="entry-view" aria-labelledby="entry-title">
+        <div class="app-entry-grid">
+          <article class="panel panel-entry-lead">
+            <p class="app-eyebrow">入口流程</p>
+            <h2 id="entry-title">先決定今天想怎麼進來</h2>
+            <p class="panel-copy">
+              Match AI 不是普通交友 app。你先留下少量真輸入，系統才會慢慢長出一封提案，之後再進入交換與對話。
+            </p>
+            <div class="entry-actions">
+              <button class="button button-primary" type="button" data-action="start-entry" data-entry-mode="journal">自己寫一句近況</button>
+              <button class="button button-soft" type="button" data-action="start-entry" data-entry-mode="demo">先看示範流程</button>
+              <button class="button button-ghost" type="button" data-action="start-entry" data-entry-mode="browse">只看首頁示意</button>
+            </div>
+            <div class="panel panel-nest panel-entry-note">
+              <p class="panel-label">產品承諾</p>
+              <p class="panel-body">不是刺激，不是市場，不是亂滑；而是一個讓相遇不必那麼隨便發生的地方。這版所有摘要和提案都由前端固定規則與 demo 資料生成，不會送到後端。</p>
+            </div>
+          </article>
+
+          <article class="card card-entry-map">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">四段式節奏</p>
+                <h3>先看路徑，再決定要不要往下走</h3>
+              </div>
+              <span class="chip chip-soft">慢節奏</span>
+            </div>
+            <ol class="entry-step-list">
+              <li class="entry-step">
+                <strong>1</strong>
+                <div>
+                  <p class="panel-label">今日</p>
+                  <p class="panel-body">先寫近況，系統只抓你願意給的輪廓。</p>
+                </div>
+              </li>
+              <li class="entry-step">
+                <strong>2</strong>
+                <div>
+                  <p class="panel-label">提案</p>
+                  <p class="panel-body">不是通知，而是一封帶著介紹信語氣的靠近。</p>
+                </div>
+              </li>
+              <li class="entry-step">
+                <strong>3</strong>
+                <div>
+                  <p class="panel-label">交換</p>
+                  <p class="panel-body">你先寫完，才會看到對方留下的那段回答。</p>
+                </div>
+              </li>
+              <li class="entry-step">
+                <strong>4</strong>
+                <div>
+                  <p class="panel-label">對話</p>
+                  <p class="panel-body">有自由，也有扶手，卡住時不用硬撐。</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="app-grid app-grid-entry">
+          <article class="card">
+            <p class="card-kicker">少量真輸入</p>
+            <h3>不要求你一開始就講很多</h3>
+            <p class="panel-copy">入口只需要一小段近況，先讓理解停在你願意交出的範圍。</p>
+          </article>
+          <article class="card">
+            <p class="card-kicker">授權邊界</p>
+            <h3>不把個資推進更多分支</h3>
+            <p class="panel-copy">真名、地點、聯絡方式這些內容只留在本地頁面，不被拿去擴寫更多故事。</p>
+          </article>
+          <article class="card">
+            <p class="card-kicker">可先示範</p>
+            <h3>如果只是 demo，可以先看一遍</h3>
+            <p class="panel-copy">入口提供示範近況，方便你先看首頁、提案和節奏安排是怎麼長出來的。</p>
+          </article>
+        </div>
+      </section>
+
+      <div class="app-main" id="app-main" hidden>
+        <nav class="app-nav" aria-label="流程狀態">
+          <button class="button button-nav" type="button" data-action="goto" data-target="home">今日</button>
+          <button class="button button-nav" type="button" data-action="goto" data-target="proposal">提案</button>
+          <button class="button button-nav" type="button" data-action="goto" data-target="task">交換</button>
+          <button class="button button-nav" type="button" data-action="goto" data-target="chat">對話</button>
+        </nav>
+
+        <section class="app-view view-home" data-view="home">
+        <div class="panel panel-hero">
+          <p class="app-eyebrow">日記式首頁</p>
+          <h2 id="home-date"></h2>
+          <p class="panel-copy" id="home-status-line"></p>
+        </div>
+
+        <div class="app-grid app-grid-home">
+          <article class="card card-question">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">今日一問</p>
+                <h3 id="home-question-title">今天的你，想先被怎麼理解？</h3>
+              </div>
+              <span class="chip chip-soft">少量真輸入</span>
+            </div>
+            <p class="panel-copy" id="home-question-copy"></p>
+            <label class="sr-only" for="journal-entry">近況輸入</label>
+            <textarea id="journal-entry" class="field field-journal" placeholder="例如：這幾天有點忙，回家後很想把世界先關小一點，但還是想被溫柔地理解。"></textarea>
+            <div class="panel-inline">
+              <span id="source-hint"></span>
+              <button class="button button-soft" type="button" data-action="seed-journal">放入示範近況</button>
+            </div>
+          </article>
+
+          <article class="card card-summary">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">理解摘要卡</p>
+                <h3>系統先用最低侵入的方式理解你</h3>
+              </div>
+              <span class="chip chip-warm">固定規則</span>
+            </div>
+            <p class="panel-copy" id="summary-text"></p>
+          </article>
+        </div>
+
+        <div class="app-grid app-grid-home">
+          <article class="card card-boundary">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">授權邊界摘要入口</p>
+                <h3>人格防火牆雛形</h3>
+              </div>
+              <span class="chip chip-outline">透明</span>
+            </div>
+            <dl class="panel-list">
+              <div>
+                <dt>目前理解來源</dt>
+                <dd id="source-detail"></dd>
+              </div>
+              <div>
+                <dt>不用於媒合的內容</dt>
+                <dd id="source-excluded"></dd>
+              </div>
+              <div>
+                <dt>透明度模式</dt>
+                <dd id="source-transparency"></dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="card card-inbox">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">相遇收件匣</p>
+                <h3 id="inbox-title"></h3>
+              </div>
+              <span class="chip chip-outline" id="proposal-status-chip"></span>
+            </div>
+            <p class="panel-copy" id="inbox-preview"></p>
+            <div class="panel-meta">
+              <div>
+                <p class="panel-label">這封提案注意到</p>
+                <p class="panel-body" id="proposal-signal"></p>
+              </div>
+              <div>
+                <p class="panel-label">節奏提醒</p>
+                <p class="panel-body" id="proposal-pace-home"></p>
+              </div>
+            </div>
+            <button class="button button-primary" type="button" data-action="open-main-flow" id="home-flow-button">閱讀這封提案</button>
+          </article>
+        </div>
+        </section>
+
+        <section class="app-view view-proposal" data-view="proposal" hidden>
+        <div class="panel panel-hero">
+          <p class="app-eyebrow">提案頁</p>
+          <h2>我想讓你認識一個人</h2>
+          <p class="panel-copy">這裡不是通知，而是一封帶著介紹信語氣的提案。</p>
+        </div>
+
+        <article class="card card-letter">
+          <div class="card-head">
+            <div>
+              <p class="card-kicker">來信提案</p>
+              <h3 id="proposal-headline"></h3>
+            </div>
+            <span class="chip chip-soft" id="proposal-tone-chip"></span>
+          </div>
+          <p class="panel-copy" id="proposal-opening"></p>
+          <div class="panel-list panel-reasons" id="proposal-reasons"></div>
+          <div class="app-grid app-grid-proposal">
+            <div class="panel panel-nest">
+              <p class="panel-label">對方內在輪廓</p>
+              <p class="panel-body" id="proposal-profile"></p>
+            </div>
+            <div class="panel panel-nest">
+              <p class="panel-label">節奏提醒</p>
+              <p class="panel-body" id="proposal-pace"></p>
+            </div>
+          </div>
+          <div class="panel panel-nest">
+            <p class="panel-label">本次理解依據</p>
+            <p class="panel-body" id="proposal-basis"></p>
+          </div>
+        </article>
+
+        <div class="app-grid app-grid-actions">
+          <button class="button button-primary" type="button" data-action="accept-proposal" id="proposal-accept-button">接受這封提案</button>
+          <button class="button button-soft" type="button" data-action="later-proposal" id="proposal-later-button">先放回收件匣</button>
+          <button class="button button-ghost" type="button" data-action="reject-proposal" id="proposal-reject-button">婉拒這次靠近</button>
+        </div>
+
+        <p class="panel-copy" id="proposal-branch-note"></p>
+        </section>
+
+        <section class="app-view view-task" data-view="task" hidden>
+        <div class="panel panel-hero">
+          <p class="app-eyebrow">任務交換頁</p>
+          <h2>先交換一段真實，再打開互動</h2>
+          <p class="panel-copy">你先寫完，才會看到對方留下的回答。</p>
+        </div>
+
+        <div class="app-grid app-grid-task">
+          <article class="card card-task-input">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">任務題目</p>
+                <h3 id="task-title">把心情寫得剛剛好就好</h3>
+              </div>
+              <span class="chip chip-outline" id="task-status-chip"></span>
+            </div>
+            <p class="panel-copy" id="task-prompt"></p>
+            <label class="sr-only" for="task-answer">任務回答</label>
+            <textarea id="task-answer" class="field field-journal" placeholder="先寫自己的版本，送出後才會看到對方的回答。"></textarea>
+            <div class="panel-inline">
+              <span id="task-hint"></span>
+              <button class="button button-primary" type="button" data-action="submit-task" id="task-submit-button">送出並揭露交換內容</button>
+            </div>
+          </article>
+
+          <article class="card card-task-reveal">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">提交後等待狀態</p>
+                <h3>雙方答案揭露</h3>
+              </div>
+              <span class="chip chip-warm" id="task-reveal-chip"></span>
+            </div>
+            <p class="panel-copy" id="task-reveal-placeholder">等你寫完這一段，這裡才會打開。</p>
+            <div class="panel panel-nest" id="task-reveal-panel" hidden>
+              <p class="panel-label">對方留下的回答</p>
+              <p class="panel-body" id="match-answer-text"></p>
+            </div>
+          </article>
+        </div>
+
+        <article class="card card-resonance" id="resonance-card" hidden>
+          <div class="card-head">
+            <div>
+              <p class="card-kicker">共鳴句圈選與短回應</p>
+              <h3>先圈住一句有感的地方</h3>
+            </div>
+            <span class="chip chip-soft">揭露後開啟</span>
+          </div>
+          <div class="panel panel-lines" id="resonance-lines"></div>
+          <label class="sr-only" for="resonance-reply">共鳴回應</label>
+          <textarea id="resonance-reply" class="field field-journal" placeholder="例如：我停在這句，是因為我也常常希望有人先問我能不能安靜陪一下。"></textarea>
+          <div class="panel-inline">
+            <span id="resonance-hint"></span>
+            <button class="button button-primary" type="button" data-action="submit-resonance" id="resonance-submit-button">送出並進入對話</button>
+          </div>
+        </article>
+        </section>
+
+        <section class="app-view view-chat" data-view="chat" hidden>
+        <div class="panel panel-hero">
+          <p class="app-eyebrow">半自由對話頁</p>
+          <h2>有自由，也有扶手</h2>
+          <p class="panel-copy">卡住時不用硬撐，先借一個入口也可以。</p>
+        </div>
+
+        <div class="app-grid app-grid-chat">
+          <article class="card card-bookmark">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">第一段交換內容書籤</p>
+                <h3 id="chat-bookmark-title"></h3>
+              </div>
+              <span class="chip chip-outline" id="guide-mode-chip"></span>
+            </div>
+            <p class="panel-copy" id="chat-bookmark-copy"></p>
+            <div class="panel panel-nest">
+              <p class="panel-label">扶手抽屜</p>
+              <p class="panel-body" id="guide-copy"></p>
+            </div>
+            <div class="app-grid app-grid-guides">
+              <button class="button button-guide" type="button" data-action="guide" data-guide="continue">延續剛才</button>
+              <button class="button button-guide" type="button" data-action="guide" data-guide="lighter">換輕一點</button>
+              <button class="button button-guide" type="button" data-action="guide" data-guide="deeper">再深一點</button>
+              <button class="button button-guide" type="button" data-action="guide" data-guide="task">開一個小任務</button>
+              <button class="button button-guide" type="button" data-action="guide" data-guide="close">今天先到這裡</button>
+            </div>
+          </article>
+
+          <article class="card card-chat">
+            <div class="card-head">
+              <div>
+                <p class="card-kicker">聊天訊息區</p>
+                <h3>從剛才交換到的真實開始</h3>
+              </div>
+              <span class="chip chip-warm" id="message-count-chip"></span>
+            </div>
+            <div class="panel panel-messages" id="messages-panel" aria-live="polite"></div>
+            <form class="panel panel-composer" id="chat-form">
+              <label class="sr-only" for="chat-input">訊息輸入</label>
+              <textarea id="chat-input" class="field field-chat" placeholder="自由說，也可以先借一下上面的扶手。"></textarea>
+              <div class="panel-inline">
+                <span id="chat-hint"></span>
+                <button class="button button-primary" type="submit" data-action="send-message">送出</button>
+              </div>
+            </form>
+          </article>
+        </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
