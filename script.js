@@ -1,172 +1,213 @@
 /* demoData */
 const demoData = {
   seeds: [
-    "這幾天有點忙，回家後很想把世界先關小一點，但還是想被溫柔地理解。",
-    "最近在想是不是該換一個方向，心裡有點期待，也有點不確定自己站不站得穩。",
-    "昨天陪家人吃晚餐時突然覺得，原來平常的小事也會讓人想被好好理解。",
-    "最近有點想靠近誰，但也不想把一切推太快，好像還在找剛好的距離。",
+    "People often read me as more distant than I am. Most of the time, I’m just slower with trust and warmer once I feel safe.",
+    "I open up more naturally when a conversation does not ask me to perform a version of myself that feels brighter than I really am.",
+    "What usually helps me stay is simple honesty. I don't need intensity first. I need sincerity first.",
+    "I'm careful at the beginning, but not because I don't care. Usually it means I care enough to want the pace to feel right.",
   ],
-  excludedText: "地點、真名、聯絡方式、具體家庭細節只停留在這個本地頁面，不會被拿去生成更多分支。",
-  transparencyText: "摘要、提案理由、對話扶手都由前端固定規則和 demo 資料生成；這版沒有後端，也沒有 AI API。",
+  excludedPrivate: "Raw writing stays private. Names, contact details, exact locations, and family specifics stay out of matching.",
+  excludedFlexible: "Your raw writing may inform your local summary, but names, contact details, exact locations, and family specifics still stay out of matching.",
+  transparencyBase: "Summaries, letters, and dialogue handrails are generated from fixed front-end rules and demo presets. This version does not use a backend or a live AI API.",
   presets: {
     default: {
       keywords: [],
-      statusLine: "今天像把窗簾拉開一點，讓空氣慢慢進來。",
-      questionCopy: "留下一小段近況，讓系統只抓你願意給出的輪廓。",
-      summaryText: "你看起來比較想要一種不必表現、也不必立刻熱絡的靠近。這版原型先把節奏放慢，讓理解停在你願意給出的範圍內。",
-      proposalTone: "慢節奏提案",
-      proposalHeadline: "安岫想用一封慢慢的信靠近你",
-      proposalOpening: "嗨，我是安岫。這不是一封要你立刻回覆的通知，只是一個輕輕靠近的提案。讀到你今天的狀態後，我想像你比較適合一種不追問、先留白的相遇方式。",
+      summaryText:
+        "You seem more sincere than performative, and more interested in calm understanding than quick chemistry. You likely open up best when the pace stays gentle and emotionally safe.",
+      proposalTone: "Slow introduction",
+      proposalHeadline: "Anxiu wants to approach you with a slower kind of letter",
+      proposalOpening:
+        "Hi, I’m Anxiu. This is not a request for immediate energy. Reading your words, I had the sense that you may prefer a beginning that does not rush trust, does not push for brightness, and leaves room for breath.",
       proposalReasons: [
-        "你的近況帶著觀察感，像是在替自己的界線留位置，這和安岫的節奏很接近。",
-        "這次提案不要求熱絡，只想確認：如果靠近是慢的，你會不會比較願意留在這裡。",
+        "The way you describe yourself suggests you care about tone and timing, not just whether someone says the right thing.",
+        "This introduction does not ask either of you to become instantly open. It only asks whether slowness might already feel more honest.",
       ],
-      proposalProfile: "對方偏好慢慢交換真實，不急著把彼此推進熱絡裡，更像會先看顧節奏的人。",
-      proposalPace: "如果今天不想打開，也可以先放著。這封信留在收件匣，不會追著你往下走。",
-      proposalSignal: "你像是在找一種可以慢慢長出信任的互動，不急著把自己一次講完。",
-      proposalPreview: "收件匣裡有一封慢節奏的提案，它在意的是你要被怎麼理解，而不是你要多快回應。",
-      taskPrompt: "寫下一個最近反覆想到的小片段，以及你當時其實沒有說出口的一句話。",
-      matchAnswer: "昨天回家時，我在便利商店門口站了很久。不是因為要買什麼，只是忽然覺得，如果有人能陪我一起沉默，也會是一種照顧。\n\n我沒說出口的是：其實我很怕自己一開口就顯得太需要。",
-      chatIntro: "看到你剛剛停下來回那一句，我比較放鬆了。如果你願意，我們可以先從今天過得怎麼樣開始。",
+      proposalProfile: "They tend to trust slower beginnings and value honesty over performance.",
+      proposalPace: "If now is not the right time, you can keep this for later. Nothing here treats urgency as proof of sincerity.",
+      proposalPreview: "There’s a quiet letter waiting here. It cares more about how you want to be understood than how quickly you reply.",
+      taskPrompt: "Write about a recent moment when you held something back, and what you quietly wished someone would have understood.",
+      matchAnswer:
+        "A few nights ago I got home and sat in the dark for longer than usual. I wasn’t falling apart. I just didn’t want to become audible too quickly.\n\nWhat I didn’t say out loud was that I sometimes wish someone would notice the silence before asking for more from me.",
+      chatIntro:
+        "Reading what you wrote made me feel less pressured to sound polished. If you want, we can stay close to that same tone and just begin there.",
       replies: {
-        continue: "我最明顯的感覺其實是鬆一下，像終於不用把自己撐得那麼完整。",
-        lighter: "今天有個小瞬間讓我舒服一點，就是喝到第一口熱茶的時候。",
-        deeper: "如果再深一點，我大概最怕的是自己明明很需要，卻還是習慣先把需要藏起來。",
-        task: "可以，我喜歡這種慢慢交換的方式。那我也寫一句最近想留住的畫面給你。",
-        close: "好，停在這裡也很好。今晚這樣的份量對我來說剛剛好。",
+        continue: "What stays with me most is the relief of not having to explain myself too quickly.",
+        lighter: "A lighter version of today would be this: the first warm sip of tea felt like enough for a moment.",
+        deeper: "If I go a little deeper, what I fear most is being read too quickly and then having to live inside that wrong version.",
+        task: "I like that. Let’s trade one recent scene we secretly wanted someone else to notice.",
+        close: "Stopping here feels right for tonight. I'd rather keep the tone honest than stretch it past where it still feels real.",
       },
     },
     busy: {
-      keywords: ["忙", "累", "加班", "壓力", "工作", "喘", "疲", "撐"],
-      statusLine: "今天像把肩膀放下半寸，先讓自己有地方落下來。",
-      questionCopy: "如果最近比較耗，就只寫下那個最想被輕輕接住的片刻。",
-      summaryText: "你最近像在高強度節奏裡保留最後一點柔軟。你不是不想連結，而是需要一種不會再多拿走你力氣的靠近。",
-      proposalTone: "低壓力提案",
-      proposalHeadline: "安岫想用比較不打擾的方式靠近你",
-      proposalOpening: "讀到你的近況，我先想到的不是怎麼把話題變多，而是怎麼讓這段開始不要變成另一件需要你用力完成的事。如果你願意，這封提案只想先陪你把節奏放慢。",
+      keywords: ["busy", "tired", "exhausted", "pressure", "work", "drained", "holding on", "overwhelmed"],
+      summaryText:
+        "You sound like someone trying to protect a little softness inside a full or demanding stretch. You may still want closeness, but only if it does not ask for more energy than you have.",
+      proposalTone: "Low-pressure introduction",
+      proposalHeadline: "Anxiu wants to approach without becoming another demand on your energy",
+      proposalOpening:
+        "What I noticed in your words was not a lack of openness, but a lack of room. This introduction is meant to feel lighter than that. Less pressure, fewer demands, more permission to stay small.",
       proposalReasons: [
-        "你現在比較像需要被接住，而不是被追問，這和安岫習慣的靠近方式很相近。",
-        "這次開始刻意留白，讓你可以先用最低耗能的方式決定要不要往下走。",
+        "You seem more in need of being met softly than being drawn out quickly.",
+        "This beginning keeps the emotional cost low on purpose, so it doesn't become another thing you have to carry well.",
       ],
-      proposalProfile: "對方擅長把聲音放小，不急著給建議，會先確認你現在有沒有餘裕說下去。",
-      proposalPace: "接受也好，稍後也好，都不影響這封信的溫度。這裡不把即時回覆當成誠意。",
-      proposalSignal: "你需要的不是更熱鬧，而是有人知道什麼時候該把聲音放小一點。",
-      proposalPreview: "這封提案注意到你最近比較像在硬撐節奏，所以它把步調放得很低，不要求你立刻投入。",
-      taskPrompt: "寫一個最近讓你覺得「想先喘一下」的瞬間，和你希望別人怎麼靠近。",
-      matchAnswer: "我上週有一天回家後，連燈都沒開就坐在地板上。那不是崩潰，比較像把自己暫停。\n\n如果有人在那種時候靠近我，我希望他先問：要不要我陪你安靜一下？",
-      chatIntro: "你剛剛那個回應讓我覺得自己不用急著整理好才開口。要不要先從最近最想喘口氣的時刻開始？",
+      proposalProfile: "They tend to lower the volume first, and check whether there is room before asking for more.",
+      proposalPace: "You do not owe this letter a fast answer. A slower response still counts as care here.",
+      proposalPreview: "There’s a quieter introduction waiting here, shaped for someone who may be carrying a little too much already.",
+      taskPrompt: "Write about a recent moment when you wanted to exhale, and how you wish someone would have come closer in that moment.",
+      matchAnswer:
+        "Last week I got home and sat on the floor before I even turned the lights on. It wasn’t dramatic. It just felt like the only honest speed left.\n\nIf someone had come close in that moment, I would have wanted them to ask if silence would help before asking anything else.",
+      chatIntro:
+        "Your reply made me feel like I don't need to arrive here fully composed. If you want, we can start from the last moment that made you want to breathe out.",
       replies: {
-        continue: "那個瞬間我最想要的，其實只是有人不要立刻給建議，先陪我待在原地就好。",
-        lighter: "今天比較輕的一刻，是下班路上吹到風的時候，我忽然覺得自己還在。",
-        deeper: "更深一點的話，我可能怕的是自己一累就變得很難被靠近，連我自己都找不到入口。",
-        task: "好，我們各自寫一句最近想放下的重量，感覺會比直接聊更容易。",
-        close: "可以，今天先到這裡對我來說很剛好。謝謝你沒有把這段聊天推太快。",
+        continue: "What I needed most in that moment was not advice. Just someone who knew not to make the room louder.",
+        lighter: "A lighter thing from today: I felt a little more here when I noticed the evening air on the walk home.",
+        deeper: "A deeper truth is that when I get tired, I become harder to reach, even to myself.",
+        task: "Let’s trade one thing we’ve been carrying too neatly.",
+        close: "This is enough for tonight. Thank you for not pushing the pace faster than it needed to go.",
       },
     },
     transition: {
-      keywords: ["轉", "搬", "換", "離職", "開始", "新", "未來", "方向", "改變", "不確定"],
-      statusLine: "今天站在變動和期待中間，腳下還在找新的重心。",
-      questionCopy: "寫下那個快要開始、又還沒有站穩的感覺就好。",
-      summaryText: "你像在搬動內心的家具，對新的方向有想像，也還在找腳感。你需要的也許不是答案，而是一個能陪你慢慢對焦的人。",
-      proposalTone: "過渡期提案",
-      proposalHeadline: "安岫想陪你站在變動的門口一下",
-      proposalOpening: "你留下的語氣像是在一段過渡裡試著穩住自己，所以這封提案不想把你往前推，只想陪你先站穩一下。如果相遇可以是一種整理，而不是新的壓力，也許我們可以試試看。",
+      keywords: ["change", "new", "direction", "future", "starting", "between", "shift", "uncertain", "transition"],
+      summaryText:
+        "You sound like someone standing in a transition: not lost, but not fully settled either. You may need space to think out loud without being pushed into a conclusion too quickly.",
+      proposalTone: "Transition-season introduction",
+      proposalHeadline: "Anxiu wants to stand with you at the edge of something that’s still changing",
+      proposalOpening:
+        "Your words feel like they’re coming from a threshold. Not from confusion exactly, but from movement. This introduction is not meant to rush certainty. It’s meant to make room for the part of you still finding shape.",
       proposalReasons: [
-        "你現在的敘述裡同時有期待和猶豫，這很適合一種不急著定義彼此的開始。",
-        "安岫習慣用提問和停頓陪人想清楚，而不是急著把故事講成結論。",
+        "You seem to be holding both expectation and uncertainty at the same time, which usually needs patience more than direction.",
+        "They tend to stay with questions a little longer before trying to turn them into answers.",
       ],
-      proposalProfile: "對方比較像會陪你看清楚、一起整理感受的人，而不是把你推向快速決定的人。",
-      proposalPace: "如果這幾天還在調整步伐，可以先把這封信放著。這裡允許變動中的人慢慢回來。",
-      proposalSignal: "你現在比較需要的是有人陪你看清楚，而不是替你太快下判斷。",
-      proposalPreview: "這封提案看見你正處在過渡裡，所以它不是催你做決定，而是先提供一個能一起想一想的空間。",
-      taskPrompt: "寫下最近一個「快要開始什麼」的時刻，和你其實擔心的部分。",
-      matchAnswer: "我最近在收拾舊筆記時，發現自己一直把不確定寫得很體面。其實真正的心情是：我很想往前，但也怕一走就回不去了。\n\n如果要有人陪我經過這段，我希望他不用替我決定，只要提醒我不用一個人扛。",
-      chatIntro: "謝謝你剛剛沒有急著把事情講成答案。你如果願意，我想先聽你說，那個快要開始的感覺目前比較像期待，還是比較像不安？",
+      proposalProfile: "They often meet change with curiosity and steadiness rather than fast conclusions.",
+      proposalPace: "If you’re still finding your footing, this letter can wait. Nothing here expects a settled version of you.",
+      proposalPreview: "There’s a letter here that does not treat uncertainty like a flaw. It treats it like part of the room.",
+      taskPrompt: "Write about something in your life that is beginning to shift, and the part of it you still don't know how to name.",
+      matchAnswer:
+        "Recently I realised I've been writing about uncertainty in a very tidy voice. The messier truth is that I want to move forward, and I'm also scared of losing some earlier version of myself by doing it.\n\nIf someone stayed close while I'm in this, I'd want them to remind me I don't have to know everything yet.",
+      chatIntro:
+        "Thank you for not turning your answer into a clean ending. If you want, we can stay with that unfinished edge for a minute longer.",
       replies: {
-        continue: "目前比較明顯的是兩個感覺一起來，所以我也還在學著不要急著選邊站。",
-        lighter: "如果換輕一點，最近有件小事讓我比較確定自己真的在往前，就是我開始願意把新的行程寫進日曆。",
-        deeper: "更深一點的話，我可能最怕的是自己選了之後，會讓某個原來的自己消失。",
-        task: "好，我們各自寫一句最近反覆對自己說的話，感覺會很貼合這段過渡。",
-        close: "好，停在這裡也很好。謝謝你沒有把這段變成追問。",
+        continue: "The strongest feeling is that expectation and fear are arriving together, and I’m trying not to force one to win.",
+        lighter: "A lighter sign of movement: I’ve started putting new plans in my calendar instead of only thinking about them.",
+        deeper: "A deeper fear is that choosing one path might quietly erase a part of me I still care about.",
+        task: "Let’s exchange one sentence we keep telling ourselves during this transition.",
+        close: "Stopping here still feels complete enough. Thank you for not turning this into an interrogation.",
       },
     },
     grounded: {
-      keywords: ["家", "晚餐", "日常", "照顧", "陪", "父母", "安穩", "平常", "小事"],
-      statusLine: "今天的溫度比較靠近日常，像一盞沒有太亮但很穩的燈。",
-      questionCopy: "把一個平常的小片刻寫下來，讓它被安靜地看見。",
-      summaryText: "你留意的是那些看起來平常、其實很重要的照顧細節。你可能比較信任慢慢累積出來的安心，而不是一下子很熱烈的靠近。",
-      proposalTone: "日常感提案",
-      proposalHeadline: "安岫想從日常裡慢慢認識你",
-      proposalOpening: "讀到你的近況時，我想到的不是什麼精彩場面，而是那種一起把普通一天過得比較柔軟的能力。如果你也覺得日常本身值得被珍惜，也許這封提案可以先停在你手邊。",
+      keywords: ["home", "dinner", "routine", "ordinary", "small", "family", "steady", "daily", "care"],
+      summaryText:
+        "You seem attentive to quiet forms of care and to the emotional weight of ordinary moments. You may trust consistency and calm more than intensity.",
+      proposalTone: "Everyday-life introduction",
+      proposalHeadline: "Anxiu wants to meet you through the quiet shape of ordinary life",
+      proposalOpening:
+        "Reading your words, I didn’t imagine a dramatic scene. I imagined a person who notices the emotional texture of ordinary things. This introduction is shaped for that kind of attention.",
       proposalReasons: [
-        "你的語氣裡有很多穩穩的照顧感，這很適合從小事開始累積信任。",
-        "安岫偏好在平常裡認識一個人，這讓這封提案更像一封信，而不是一個通知。",
+        "The way you describe closeness sounds more like shared steadiness than spectacle.",
+        "They seem drawn to the kind of intimacy that grows through repeated, ordinary sincerity.",
       ],
-      proposalProfile: "對方更在意能不能一起把普通的一天過得柔軟，而不是把彼此包裝得很亮眼。",
-      proposalPace: "這裡不要求馬上熱絡。慢慢回，或只是先讀著，也都算是一種靠近。",
-      proposalSignal: "你看重的是能不能一起把普通的一天過得比較柔軟，而不是把彼此包裝得很亮眼。",
-      proposalPreview: "這封提案注意到你對日常感有敏感度，所以它不是要製造刺激，而是想確認平靜會不會也是一種吸引。",
-      taskPrompt: "寫下最近一個讓你覺得被日常安放的片刻，和你想和別人分享的原因。",
-      matchAnswer: "前幾天我煮完晚餐後，沒有立刻收拾，只是坐在餐桌邊看著那盞黃燈。那個時候我忽然覺得，原來平靜不是無聊，而是一種有人能一起待著的安全。\n\n如果要分享給誰，我希望他聽到的不是事件本身，而是那種安穩終於落下來的感覺。",
-      chatIntro: "你剛剛的回應讓我想到，日常好像真的比精彩更能看出一個人。要不要先分享你最近最想留住的一個普通片刻？",
+      proposalProfile: "They are more interested in whether a day feels softer together than whether it feels exciting on the surface.",
+      proposalPace: "You don't have to rush warmth here. Even a quieter reply still counts as a real beginning.",
+      proposalPreview: "There’s a letter here for someone who may trust calm more than spark.",
+      taskPrompt: "Write about a recent ordinary moment that felt more meaningful than it looked from the outside.",
+      matchAnswer:
+        "A few nights ago I finished cooking and just stayed by the table a little longer. The light was warm, the apartment was quiet, and I realised peace is not the absence of feeling. It’s a form of safety.\n\nIf I were sharing that with someone, I’d want them to hear the quiet underneath it, not just the event itself.",
+      chatIntro:
+        "Your reply made me think ordinary life might say more about us than dramatic moments ever do. If you want, start with one scene you wish you could keep.",
       replies: {
-        continue: "我想留住的其實不是那件事本身，而是那個時候整個人慢下來的感覺。",
-        lighter: "換輕一點的話，今天最舒服的小事是曬到一點點下午的太陽。",
-        deeper: "更深一點，我大概是在怕如果沒有人懂這些小事，它們就會默默被生活吞掉。",
-        task: "可以，我們各自交換一句最近想重複過的日常場景。",
-        close: "好，先停在這裡很舒服。謝謝你願意把普通的小事講得這麼真。",
+        continue: "What I want to keep is not the event itself so much as the way my whole body slowed down inside it.",
+        lighter: "A lighter thing from today: a little afternoon light felt unexpectedly kind.",
+        deeper: "A deeper fear is that if no one notices these small moments with me, they’ll disappear too quietly.",
+        task: "Let’s trade one ordinary scene we wish could happen again.",
+        close: "Stopping here feels gentle in the right way. Thank you for treating ordinary things like they matter.",
       },
     },
     longing: {
-      keywords: ["想", "期待", "靠近", "喜歡", "心動", "聊天", "遇見", "連結", "陪伴"],
-      statusLine: "今天心裡有一點想靠近，但還想保留自己的呼吸。",
-      questionCopy: "不用把自己一次講完，只要留下一句最近想靠近的心情。",
-      summaryText: "你沒有要熱鬧，你是在試探一種剛好的靠近：不冒進，但也不是把自己完全藏起來。這種語氣很適合從一點真實開始。",
-      proposalTone: "試探式提案",
-      proposalHeadline: "安岫想確認這份想靠近是不是也讓你舒服",
-      proposalOpening: "讀到你的近況時，我感覺你不是想要一段很快很亮的開始，而是想知道：如果靠近也能保留呼吸，會不會比較像你要的樣子。這封提案想先試著站在那個距離上。",
+      keywords: ["close", "stay", "connection", "companionship", "longing", "want", "someone", "together", "careful"],
+      summaryText:
+        "You sound open to closeness, but only the kind that still lets you keep your breath. You may not be looking for intensity first so much as a form of presence that feels emotionally true.",
+      proposalTone: "Careful-approach introduction",
+      proposalHeadline: "Anxiu wants to meet the part of you that hopes for closeness without forcing it",
+      proposalOpening:
+        "What I heard in your words was not a loud hunger for attention, but a careful hope for presence. This introduction stays with that pace. It doesn't try to turn hope into heat too quickly.",
       proposalReasons: [
-        "你願意透露一點想靠近，但沒有把自己整個推出去，這份節制很珍貴。",
-        "安岫偏好先交換真實，再慢慢長出親密，所以這份提案不會把你往熱鬧裡推。",
+        "You seem willing to move toward someone, but not at the cost of losing your own pace.",
+        "They also seem to prefer honest presence over speed or performance, which makes this a quieter kind of fit.",
       ],
-      proposalProfile: "對方偏好先確認彼此是不是舒服，再決定要不要把距離拉近，不靠熱鬧往前衝。",
-      proposalPace: "你可以先收著，等比較有餘裕時再打開。這裡不把猶豫當作退縮。",
-      proposalSignal: "你期待的是被理解之後的靠近，不是只靠熱情撐著往前跑。",
-      proposalPreview: "這封提案看見你心裡那一點想靠近，所以它把開始寫得像一封信，而不是一個需要立刻證明的邀請。",
-      taskPrompt: "寫下一個最近讓你想起「如果有人在這裡就好了」的片刻，以及你期待那個人做什麼。",
-      matchAnswer: "前幾天回家路上看到一棟樓裡亮著幾盞暖黃的燈，我突然想到，如果有人能在我回到家時問一句「今天還好嗎」，可能就會讓整天柔軟很多。\n\n我期待的不是被拯救，只是有人願意真的在場。",
-      chatIntro: "你剛剛那段回應讓我覺得，靠近這件事好像不用那麼大聲。如果你願意，我想先聽你說，那個「有人在就好了」的畫面長什麼樣子。",
+      proposalProfile: "They usually want to know whether a connection feels emotionally safe before trying to make it intense.",
+      proposalPace: "You can keep this for later if you want. Hesitation is not treated like failure here.",
+      proposalPreview: "There’s a letter here for someone who wants closeness, but not the version that arrives too loudly.",
+      taskPrompt: "Write about a recent moment that made you think, “I wish someone were here with me,” and what you hoped that person would bring.",
+      matchAnswer:
+        "The other night I walked past a building full of warm window light and thought how different a long day can feel if someone meets you at the end of it with real presence.\n\nI wasn’t imagining rescue. Just someone who is actually there.",
+      chatIntro:
+        "Your answer made closeness feel quieter and more believable. If you want, tell me what that “someone being there” moment looks like in more detail.",
       replies: {
-        continue: "那個畫面裡最重要的其實不是做了什麼，而是對方真的在場，沒有心不在焉。",
-        lighter: "如果換輕一點，今天有個瞬間讓我覺得被安慰，就是晚上的風比我想像中溫柔。",
-        deeper: "更深一點的話，我可能最怕的是自己想靠近，卻剛好遇到一個只想熱鬧的人。",
-        task: "好，我們各自交換一句最近最想被別人聽懂的話。",
-        close: "可以，今天先停在這裡。我反而喜歡這樣不把感覺一次用完。",
+        continue: "What matters most in that image is not what they do. It’s that they’re genuinely present.",
+        lighter: "A lighter version of today: the wind felt softer than I expected tonight, and that was enough for a second.",
+        deeper: "A deeper fear is wanting closeness and then meeting someone who only knows how to be loud, not present.",
+        task: "Let’s exchange one sentence we wish someone would understand about how we want to be close.",
+        close: "Stopping here feels more honest than forcing one more layer tonight.",
       },
     },
   },
 };
 
 /* state */
+const stepOrder = {
+  entry: 0,
+  consent: 1,
+  freeTalk: 2,
+  assist: 3,
+  reflection: 4,
+  summaryReview: 5,
+  inlineEdit: 6,
+  gapFill: 7,
+  complete: 8,
+};
+
+const gapFillPrompts = {
+  pace: "What kind of pace helps you open up naturally?",
+  safety: "What usually helps you feel safe enough to be honest with someone?",
+  conversation: "What kind of conversation makes you want to stay?",
+};
+
 const state = {
   entryStarted: false,
-  entryMode: "",
   currentView: "home",
+  howVisible: false,
+  step: "entry",
+  rawInput: "",
+  buildSummary: true,
+  useSummaryForMatching: true,
+  keepRawPrivate: true,
+  reflectionText: "",
+  draftSummary: "",
+  editedSummary: "",
+  reviewedSummary: "",
+  introductionSafeSummary: "",
+  needsGapFill: false,
+  gapFillQuestion: "",
+  gapFillAnswer: "",
+  entryHint: "80–180 words is enough.",
+  consentSupport: "We’ll keep this first pass light, editable, and under your control.",
+  summaryEditHint: "Shape this draft until it feels closer.",
+  gapFillHint: "A sentence or two is enough.",
+  completeCopy: "",
+  journalDraft: "",
   journalEntry: "",
-  summaryText: "",
   proposalStatus: "pending",
   taskStatus: "locked",
   taskAnswer: "",
   matchAnswer: "",
   selectedLine: "",
+  resonanceReply: "",
   messages: [],
+  chatDraft: "",
+  awaitingReply: false,
   themeId: "default",
   flowThemeId: "default",
   flowLocked: false,
-  statusLine: "",
-  questionCopy: "",
-  sourceHint: "",
-  sourceDetail: "",
   proposalCard: {
     tone: "",
     headline: "",
@@ -174,44 +215,70 @@ const state = {
     reasons: [],
     profile: "",
     pace: "",
-    signal: "",
     preview: "",
     basis: "",
   },
   taskPrompt: "",
-  resonanceReply: "",
-  chatDraft: "",
   guideMode: "continue",
-  branchNote: "你可以接受、先放回收件匣，或明確停在這裡。",
-  seedIndex: 0,
-  awaitingReply: false,
+  boundaryOpen: false,
+  homeHintOverride: "",
   pendingFocus: "",
 };
 
 /* viewSelectors */
 const viewSelectors = {
+  appFrame: document.querySelector("#app-frame"),
   entryView: document.querySelector("#entry-view"),
   appMain: document.querySelector("#app-main"),
+  landingActions: document.querySelector("#landing-actions"),
   homeButton: document.querySelector("#home-button"),
+  howButton: document.querySelector("#how-button"),
+  onboardingStack: document.querySelector("#onboarding-stack"),
+  cardConsent: document.querySelector("#card-consent"),
+  cardFreeTalk: document.querySelector("#card-free-talk"),
+  cardReflection: document.querySelector("#card-reflection"),
+  cardSummaryReview: document.querySelector("#card-summary-review"),
+  cardGapFill: document.querySelector("#card-gap-fill"),
+  cardComplete: document.querySelector("#card-complete"),
+  entryAside: document.querySelector("#entry-aside"),
+  entryFragment: document.querySelector("#entry-fragment"),
+  consentSummary: document.querySelector("#consent-summary"),
+  consentMatching: document.querySelector("#consent-matching"),
+  consentRawPrivate: document.querySelector("#consent-raw-private"),
+  consentSupport: document.querySelector("#consent-support"),
+  rawInput: document.querySelector("#raw-input"),
+  rawInputHint: document.querySelector("#raw-input-hint"),
+  assistPanel: document.querySelector("#assist-panel"),
+  reflectionText: document.querySelector("#reflection-text"),
+  summarySupport: document.querySelector("#summary-support"),
+  summaryPreview: document.querySelector("#summary-preview"),
+  summaryEditPanel: document.querySelector("#summary-edit-panel"),
+  summaryEdit: document.querySelector("#summary-edit"),
+  summaryEditHint: document.querySelector("#summary-edit-hint"),
+  summaryReviewActions: document.querySelector("#summary-review-actions"),
+  gapFillQuestion: document.querySelector("#gap-fill-question"),
+  gapFillAnswer: document.querySelector("#gap-fill-answer"),
+  gapFillHint: document.querySelector("#gap-fill-hint"),
+  completeCopy: document.querySelector("#complete-copy"),
   views: [...document.querySelectorAll("[data-view]")],
   navButtons: [...document.querySelectorAll('[data-action="goto"]')],
   homeDate: document.querySelector("#home-date"),
   homeStatusLine: document.querySelector("#home-status-line"),
+  homeQuestionTitle: document.querySelector("#home-question-title"),
   homeQuestionCopy: document.querySelector("#home-question-copy"),
   journalEntry: document.querySelector("#journal-entry"),
   sourceHint: document.querySelector("#source-hint"),
   summaryText: document.querySelector("#summary-text"),
+  boundaryToggle: document.querySelector("#boundary-toggle"),
+  boundaryPanel: document.querySelector("#boundary-panel"),
   sourceDetail: document.querySelector("#source-detail"),
   sourceExcluded: document.querySelector("#source-excluded"),
   sourceTransparency: document.querySelector("#source-transparency"),
-  inboxTitle: document.querySelector("#inbox-title"),
-  inboxPreview: document.querySelector("#inbox-preview"),
-  proposalStatusChip: document.querySelector("#proposal-status-chip"),
-  proposalSignal: document.querySelector("#proposal-signal"),
-  proposalPaceHome: document.querySelector("#proposal-pace-home"),
+  inboxLine: document.querySelector("#inbox-line"),
   homeFlowButton: document.querySelector("#home-flow-button"),
-  proposalHeadline: document.querySelector("#proposal-headline"),
+  proposalSheet: document.querySelector("#proposal-sheet"),
   proposalToneChip: document.querySelector("#proposal-tone-chip"),
+  proposalHeadline: document.querySelector("#proposal-headline"),
   proposalOpening: document.querySelector("#proposal-opening"),
   proposalReasons: document.querySelector("#proposal-reasons"),
   proposalProfile: document.querySelector("#proposal-profile"),
@@ -221,6 +288,7 @@ const viewSelectors = {
   proposalLaterButton: document.querySelector("#proposal-later-button"),
   proposalRejectButton: document.querySelector("#proposal-reject-button"),
   proposalBranchNote: document.querySelector("#proposal-branch-note"),
+  taskTitle: document.querySelector("#task-title"),
   taskStatusChip: document.querySelector("#task-status-chip"),
   taskPrompt: document.querySelector("#task-prompt"),
   taskAnswer: document.querySelector("#task-answer"),
@@ -247,12 +315,16 @@ const viewSelectors = {
   chatHint: document.querySelector("#chat-hint"),
 };
 
-/* renderers */
+/* helpers */
+function getStepIndex(stepName = state.step) {
+  return stepOrder[stepName] ?? 0;
+}
+
 function getTodayText() {
-  return new Intl.DateTimeFormat("zh-TW", {
+  return new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
     month: "long",
     day: "numeric",
-    weekday: "long",
   }).format(new Date());
 }
 
@@ -264,16 +336,25 @@ function getFlowPreset() {
   return getPreset(state.flowThemeId);
 }
 
+function isPreviewOnly() {
+  return !state.useSummaryForMatching;
+}
+
+function containsAny(text, keywords) {
+  return keywords.some((keyword) => text.includes(keyword));
+}
+
 function detectTheme(text) {
   if (!text.trim()) {
     return "default";
   }
 
+  const lower = text.toLowerCase();
   let winner = "default";
   let highest = 0;
 
   Object.entries(demoData.presets).forEach(([themeId, preset]) => {
-    const score = preset.keywords.reduce((total, keyword) => total + (text.includes(keyword) ? 1 : 0), 0);
+    const score = preset.keywords.reduce((total, keyword) => total + (lower.includes(keyword) ? 1 : 0), 0);
     if (score > highest) {
       winner = themeId;
       highest = score;
@@ -283,58 +364,320 @@ function detectTheme(text) {
   return winner;
 }
 
-function collectKeywords(text, themeId) {
-  return getPreset(themeId).keywords.filter((keyword) => text.includes(keyword)).slice(0, 3);
-}
-
-function applyThemeToFlow(themeId) {
-  const preset = getPreset(themeId);
-  const keywords = collectKeywords(state.journalEntry, themeId);
-  const basis = state.journalEntry.trim()
-    ? `來自你剛剛寫下的近況${keywords.length ? `，固定規則暫時抓到的詞有：${keywords.join("、")}` : "，但沒有額外擴寫成更多推論"}。`
-    : "目前沒有真實近況，先以最低限度的示意文案生成提案。";
-
-  state.flowThemeId = themeId;
-  state.proposalCard = {
-    tone: preset.proposalTone,
-    headline: preset.proposalHeadline,
-    opening: preset.proposalOpening,
-    reasons: [...preset.proposalReasons],
-    profile: preset.proposalProfile,
-    pace: preset.proposalPace,
-    signal: preset.proposalSignal,
-    preview: preset.proposalPreview,
-    basis,
+function getReflectionLead(themeId) {
+  const leads = {
+    default: "you care more about honesty and pacing than quick chemistry",
+    busy: "you’ve been carrying more than you want to explain out loud",
+    transition: "you’re in the middle of something that still feels unfinished",
+    grounded: "ordinary forms of care matter more to you than loud gestures",
+    longing: "you want closeness, but only the kind that still leaves you room to breathe",
   };
-  state.taskPrompt = preset.taskPrompt;
-  state.matchAnswer = preset.matchAnswer;
+
+  return leads[themeId] || leads.default;
 }
 
-function syncFromJournal() {
-  const entry = state.journalEntry.trim();
-  state.themeId = detectTheme(entry);
-  const preset = getPreset(state.themeId);
-  const keywords = collectKeywords(entry, state.themeId);
+function getReflectionFollow(text) {
+  const lower = text.toLowerCase();
+  if (containsAny(lower, ["shallow", "surface", "small talk"])) {
+    return "and that honesty matters more to you than speed.";
+  }
+  if (containsAny(lower, ["slow", "slowly", "pace", "time", "timing", "gentle", "gently", "trust", "rushed"])) {
+    return "and that you open up more naturally when the pace stays gentle.";
+  }
+  if (containsAny(lower, ["safe", "safety", "guard", "secure", "understood"])) {
+    return "and that feeling safe matters more to you than performing well.";
+  }
+  if (containsAny(lower, ["conversation", "listen", "talk", "stay"])) {
+    return "and that the quality of conversation matters more to you than momentum.";
+  }
+  return "and that you'd rather be understood slowly than pushed to feel open too fast.";
+}
 
-  if (!entry) {
-    state.statusLine = "今天還沒留下近況，頁面先維持最輕的輪廓。";
-    state.questionCopy = demoData.presets.default.questionCopy;
-    state.summaryText = "你還沒留下近況前，系統只保留最低限度的示意，不會自動補完你的故事。";
-    state.sourceHint = "尚未偵測到你想留下的重點。";
-    state.sourceDetail = "目前還沒有真實近況，首頁只用預設文案示意。";
-  } else {
-    state.statusLine = preset.statusLine;
-    state.questionCopy = preset.questionCopy;
-    state.summaryText = preset.summaryText;
-    state.sourceHint = keywords.length ? `讀到的線索：${keywords.join("、")}` : "讀到的是整段語氣，沒有額外擴寫成更多推論。";
-    state.sourceDetail = keywords.length
-      ? `來自你剛剛寫下的近況，固定規則暫時抓到的詞有：${keywords.join("、")}。`
-      : "來自你剛剛寫下的整段近況；這版不做額外隱形推論。";
+function buildReflectionText(text, themeId) {
+  return `I'm hearing that ${getReflectionLead(themeId)}, ${getReflectionFollow(text)} Does that feel close, or am I missing something important?`;
+}
+
+function deriveGapFillQuestion(text, force = false) {
+  const lower = text.toLowerCase();
+  const checks = [
+    {
+      keywords: ["slow", "slowly", "pace", "time", "timing", "gentle", "gently", "space", "steady", "rushed"],
+      question: gapFillPrompts.pace,
+    },
+    {
+      keywords: ["safe", "safety", "trust", "trusted", "secure", "guard", "honest", "honesty", "understood"],
+      question: gapFillPrompts.safety,
+    },
+    {
+      keywords: ["conversation", "talk", "talking", "dialogue", "listen", "listened", "questions", "small talk", "shallow", "stay"],
+      question: gapFillPrompts.conversation,
+    },
+  ];
+
+  const missing = checks.find((check) => !containsAny(lower, check.keywords));
+  if (missing) {
+    return missing.question;
   }
 
-  if (!state.flowLocked) {
-    applyThemeToFlow(state.themeId);
+  if (force) {
+    return gapFillPrompts.conversation;
   }
+
+  return "";
+}
+
+function buildIntroductionSafeSummary(reviewedSummary, gapFillAnswer) {
+  const summary = reviewedSummary.replace(/\s+/g, " ").trim();
+  const gap = gapFillAnswer.replace(/\s+/g, " ").trim();
+
+  if (!summary) {
+    return "";
+  }
+
+  if (!gap) {
+    return summary;
+  }
+
+  return `${summary} ${gap}`.trim();
+}
+
+function buildPreparedUnderstanding(text) {
+  const entry = text.trim();
+  const themeId = detectTheme(entry);
+  const preset = getPreset(themeId);
+
+  return {
+    themeId,
+    reflectionText: buildReflectionText(entry, themeId),
+    draftSummary: preset.summaryText,
+    gapFillQuestion: deriveGapFillQuestion(entry, false),
+    proposalCard: {
+      tone: preset.proposalTone,
+      headline: preset.proposalHeadline,
+      opening: preset.proposalOpening,
+      reasons: [...preset.proposalReasons],
+      profile: preset.proposalProfile,
+      pace: preset.proposalPace,
+      preview: preset.proposalPreview,
+      basis: "",
+    },
+    taskPrompt: preset.taskPrompt,
+    matchAnswer: preset.matchAnswer,
+  };
+}
+
+function applyPreparedToFlow(prepared) {
+  state.themeId = prepared.themeId;
+  state.flowThemeId = prepared.themeId;
+  state.proposalCard = prepared.proposalCard;
+  state.taskPrompt = prepared.taskPrompt;
+  state.matchAnswer = prepared.matchAnswer;
+  state.reflectionText = prepared.reflectionText;
+  state.draftSummary = prepared.draftSummary;
+  state.editedSummary = prepared.draftSummary;
+  state.gapFillQuestion = prepared.gapFillQuestion;
+  state.needsGapFill = Boolean(prepared.gapFillQuestion);
+}
+
+function getCurrentSummaryText() {
+  return (state.editedSummary || state.draftSummary).trim();
+}
+
+function commitReviewedSummary(summary) {
+  state.reviewedSummary = summary.trim();
+  state.introductionSafeSummary = buildIntroductionSafeSummary(state.reviewedSummary, state.gapFillAnswer);
+}
+
+function getConsentSupportText() {
+  if (!state.buildSummary) {
+    return "We need a first understanding before anything can begin. You can still keep your original words private.";
+  }
+
+  if (!state.useSummaryForMatching) {
+    return "We can still build a first understanding. Introductions will stay in preview mode until you turn matching on.";
+  }
+
+  return "We’ll keep this first pass light, editable, and under your control.";
+}
+
+function getCompleteCopy() {
+  if (isPreviewOnly()) {
+    return "We have enough to begin gently. For now, introductions will stay in preview.";
+  }
+
+  return "We have enough to begin gently. Introductions will start from the understanding you reviewed.";
+}
+
+function getOriginalWordsLine() {
+  if (state.keepRawPrivate) {
+    return "Your original words stay closest to you.";
+  }
+
+  return "Your original words can inform this first pass more directly, but they still are not the layer used for introductions.";
+}
+
+function getReviewedUnderstandingLine() {
+  return "Your reviewed understanding is the version you’ve confirmed.";
+}
+
+function getIntroductionLayerLine() {
+  if (isPreviewOnly()) {
+    return "What can be used for introductions is currently turned off, so this stays a careful preview.";
+  }
+
+  return "What can be used for introductions stays lighter and safer than your raw writing.";
+}
+
+function getHomeDraftHint() {
+  if (state.homeHintOverride) {
+    return state.homeHintOverride;
+  }
+
+  const draft = state.journalDraft.trim();
+  const committed = state.journalEntry.trim();
+
+  if (!draft && !committed) {
+    return "You don't need much here. A little is enough.";
+  }
+
+  if (draft !== committed) {
+    return "This note hasn’t been left here yet. Your reviewed understanding is still the version above.";
+  }
+
+    return "You can leave a little more here. It won't replace your reviewed understanding.";
+}
+
+function getProposalBasisText() {
+  if (isPreviewOnly()) {
+    return "This letter is only being shown as a careful preview. Your reviewed understanding is not currently being used for introductions.";
+  }
+
+  if (state.gapFillAnswer.trim()) {
+    return "This introduction is based on your reviewed understanding, plus one extra detail you chose to add before it began.";
+  }
+
+  return "This introduction is based on your reviewed understanding, not on your raw writing.";
+}
+
+function getProposalHeadlineText() {
+  if (isPreviewOnly()) {
+    return "A quieter introduction has been set aside for you";
+  }
+
+  return state.proposalCard.headline;
+}
+
+function getProposalOpeningText() {
+  if (isPreviewOnly()) {
+    return "This is not an active introduction. It's a preview of how March might begin, based on the understanding you reviewed. You can read it without starting anything yet.";
+  }
+
+  return state.proposalCard.opening;
+}
+
+function getProposalPaceText() {
+  if (isPreviewOnly()) {
+    return "Because introductions are turned off for now, this stays a careful preview rather than an active approach.";
+  }
+
+  return state.proposalCard.pace;
+}
+
+function getProposalBranchNote() {
+  if (isPreviewOnly()) {
+    if (state.taskStatus === "chatting") {
+      return "You’re continuing through a preview of how dialogue might begin after a slower introduction.";
+    }
+    if (state.proposalStatus === "accepted") {
+      return "You’re moving through the preview flow. It shows the pacing, not a live mutual introduction.";
+    }
+    if (state.proposalStatus === "later") {
+      return "This preview can wait here until you want to look at it again.";
+    }
+    if (state.proposalStatus === "rejected") {
+      return "You passed on the preview for now. Nothing moves forward from here.";
+    }
+    return "This is a careful preview of how March would introduce someone, not a live matching outcome.";
+  }
+
+  if (state.taskStatus === "chatting") {
+    return "This introduction has already grown into dialogue.";
+  }
+  if (state.proposalStatus === "accepted") {
+    return "You accepted this introduction. The next step is echo, not immediate conversation.";
+  }
+  if (state.proposalStatus === "later") {
+    return "You kept this letter for later. It can wait without losing its tone.";
+  }
+  if (state.proposalStatus === "rejected") {
+    return "You passed on this for now. The letter stops here without trying to pull you further.";
+  }
+
+  return "You can accept this introduction, keep it for later, or stop here without being pulled any further.";
+}
+
+function buildInboxMeta() {
+  if (isPreviewOnly() && state.proposalStatus === "pending" && state.taskStatus === "locked") {
+    return {
+      line: "Matching is off for now. You can still read a careful preview of how an introduction would sound.",
+      button: "Read the preview",
+      target: "proposal",
+    };
+  }
+
+  if (state.taskStatus === "chatting") {
+    return {
+      line: isPreviewOnly()
+        ? "You’re inside a preview of how dialogue might begin."
+        : "This letter has already grown into dialogue.",
+      button: isPreviewOnly() ? "Back to preview dialogue" : "Back to dialogue",
+      target: "chat",
+    };
+  }
+
+  if (state.taskStatus === "answered") {
+    return {
+      line: "You've both exchanged answers. Now you can circle one line that stayed with you.",
+      button: "Back to echo",
+      target: "task",
+    };
+  }
+
+  if (state.proposalStatus === "accepted") {
+    return {
+      line: isPreviewOnly()
+        ? "You’re moving through the preview flow. The next step is echo."
+        : "This introduction has already been opened. The next step is echo, not immediate conversation.",
+      button: isPreviewOnly() ? "Go to echo preview" : "Go to echo",
+      target: "task",
+    };
+  }
+
+  if (state.proposalStatus === "later") {
+    return {
+      line: isPreviewOnly()
+        ? "This preview is still waiting in your inbox."
+        : "This letter is still waiting in your inbox. It can stay there until the pace feels right.",
+      button: isPreviewOnly() ? "Back to preview" : "Back to letter",
+      target: "proposal",
+    };
+  }
+
+  if (state.proposalStatus === "rejected") {
+    return {
+      line: isPreviewOnly()
+        ? "You passed on the preview for now."
+        : "You passed on this approach for now. If you only want to reread it, the letter is still here.",
+      button: isPreviewOnly() ? "Reread the preview" : "Reread the letter",
+      target: "proposal",
+    };
+  }
+
+  return {
+    line: "There’s a letter waiting in your inbox.",
+    button: "Go to letter",
+    target: "proposal",
+  };
 }
 
 function isViewUnlocked(viewName) {
@@ -350,6 +693,105 @@ function isViewUnlocked(viewName) {
   return false;
 }
 
+function setCardState(element, { visible, current, receded }) {
+  element.hidden = !visible;
+  if (!visible) {
+    element.classList.remove("is-current", "is-receded");
+    return;
+  }
+  element.classList.toggle("is-current", current);
+  element.classList.toggle("is-receded", receded && !current);
+}
+
+/* renderers */
+function renderEntry() {
+  viewSelectors.appFrame.classList.toggle("is-in-flow", state.entryStarted);
+  viewSelectors.entryView.hidden = state.entryStarted;
+  viewSelectors.appMain.hidden = !state.entryStarted;
+  viewSelectors.homeButton.hidden = !state.entryStarted;
+  viewSelectors.landingActions.hidden = state.entryStarted;
+
+  if (state.entryStarted) {
+    return;
+  }
+
+  const currentIndex = getStepIndex();
+  const showStack = state.step !== "entry";
+
+  viewSelectors.onboardingStack.hidden = !showStack;
+  viewSelectors.entryAside.hidden = !state.howVisible;
+  viewSelectors.entryFragment.hidden = !(showStack || state.howVisible);
+  viewSelectors.howButton.setAttribute("aria-expanded", String(state.howVisible));
+
+  setCardState(viewSelectors.cardConsent, {
+    visible: showStack,
+    current: currentIndex <= stepOrder.consent,
+    receded: currentIndex > stepOrder.consent,
+  });
+
+  const freeTalkVisible = showStack && (state.buildSummary || currentIndex >= stepOrder.reflection || currentIndex === stepOrder.assist);
+  setCardState(viewSelectors.cardFreeTalk, {
+    visible: freeTalkVisible,
+    current: state.step === "freeTalk" || state.step === "assist",
+    receded: currentIndex > stepOrder.assist,
+  });
+
+  setCardState(viewSelectors.cardReflection, {
+    visible: currentIndex >= stepOrder.reflection,
+    current: state.step === "reflection",
+    receded: currentIndex > stepOrder.reflection,
+  });
+
+  setCardState(viewSelectors.cardSummaryReview, {
+    visible: currentIndex >= stepOrder.summaryReview,
+    current: state.step === "summaryReview" || state.step === "inlineEdit",
+    receded: currentIndex > stepOrder.inlineEdit,
+  });
+
+  setCardState(viewSelectors.cardGapFill, {
+    visible: Boolean(state.gapFillQuestion) && currentIndex >= stepOrder.gapFill,
+    current: state.step === "gapFill",
+    receded: currentIndex > stepOrder.gapFill,
+  });
+
+  setCardState(viewSelectors.cardComplete, {
+    visible: state.step === "complete",
+    current: state.step === "complete",
+    receded: false,
+  });
+
+  viewSelectors.consentSummary.checked = state.buildSummary;
+  viewSelectors.consentMatching.checked = state.useSummaryForMatching;
+  viewSelectors.consentRawPrivate.checked = state.keepRawPrivate;
+  viewSelectors.consentSummary.disabled = currentIndex >= stepOrder.reflection;
+  viewSelectors.consentSupport.textContent = getConsentSupportText();
+
+  viewSelectors.rawInput.value = state.rawInput;
+  viewSelectors.rawInput.readOnly = currentIndex >= stepOrder.reflection;
+  viewSelectors.rawInputHint.textContent = state.entryHint;
+  viewSelectors.assistPanel.hidden = state.step !== "assist";
+
+  viewSelectors.reflectionText.textContent = state.reflectionText;
+
+  const summaryText = getCurrentSummaryText();
+  viewSelectors.summarySupport.textContent = state.step === "inlineEdit"
+    ? "Shape this draft until it feels closer. You won’t lose the version you started from."
+    : "This is only a draft. You can shape it.";
+  viewSelectors.summaryPreview.textContent = summaryText;
+  viewSelectors.summaryPreview.hidden = state.step === "inlineEdit";
+  viewSelectors.summaryReviewActions.hidden = state.step !== "summaryReview";
+  viewSelectors.summaryEditPanel.hidden = state.step !== "inlineEdit";
+  viewSelectors.summaryEdit.value = summaryText;
+  viewSelectors.summaryEditHint.textContent = state.summaryEditHint;
+
+  viewSelectors.gapFillQuestion.textContent = state.gapFillQuestion;
+  viewSelectors.gapFillAnswer.value = state.gapFillAnswer;
+  viewSelectors.gapFillHint.textContent = state.gapFillHint;
+
+  state.completeCopy = getCompleteCopy();
+  viewSelectors.completeCopy.textContent = state.completeCopy;
+}
+
 function renderNav() {
   viewSelectors.navButtons.forEach((button) => {
     const target = button.dataset.target;
@@ -360,19 +802,6 @@ function renderNav() {
   });
 }
 
-function renderEntry() {
-  const hasEntryShell = Boolean(viewSelectors.entryView && viewSelectors.appMain && viewSelectors.homeButton);
-  if (!hasEntryShell) {
-    state.entryStarted = true;
-    return;
-  }
-
-  const started = state.entryStarted;
-  viewSelectors.entryView.hidden = started;
-  viewSelectors.appMain.hidden = !started;
-  viewSelectors.homeButton.hidden = !started;
-}
-
 function renderViews() {
   viewSelectors.views.forEach((view) => {
     view.hidden = view.dataset.view !== state.currentView;
@@ -381,132 +810,80 @@ function renderViews() {
 
 function renderProposalReasons() {
   viewSelectors.proposalReasons.replaceChildren();
-  state.proposalCard.reasons.forEach((reason, index) => {
-    const panel = document.createElement("div");
-    panel.className = "panel";
 
-    const count = document.createElement("strong");
-    count.textContent = String(index + 1);
+  state.proposalCard.reasons.forEach((reason, index) => {
+    const block = document.createElement("div");
+    block.className = "letter-reason";
+
+    const title = document.createElement("p");
+    title.className = "letter-reason-title";
+    title.textContent = `Reason ${index + 1}`;
 
     const copy = document.createElement("p");
     copy.className = "panel-body";
     copy.textContent = reason;
 
-    panel.append(count, copy);
-    viewSelectors.proposalReasons.append(panel);
+    block.append(title, copy);
+    viewSelectors.proposalReasons.append(block);
   });
-}
-
-function buildInboxMeta() {
-  if (state.taskStatus === "chatting") {
-    return {
-      title: "這封提案已走進對話，節奏仍然留在你手上",
-      preview: "你們先交換了一段真實，再開啟聊天。現在仍可回到扶手或放慢，不需要把親近一次用完。",
-      button: "回到對話",
-      target: "chat",
-      chip: "對話中",
-    };
-  }
-
-  if (state.taskStatus === "answered") {
-    return {
-      title: "你們已交換回答，現在可以圈住一句有感的地方",
-      preview: "對方的回答已揭露。這個原型把互動的第一步放在交換真實，不是直接掉進聊天裡。",
-      button: "回到交換內容",
-      target: "task",
-      chip: "已揭露",
-    };
-  }
-
-  if (state.proposalStatus === "accepted") {
-    return {
-      title: "你已接受提案，下一步是交換一段真實回答",
-      preview: "這封信已經被你打開，接下來不是立刻聊天，而是先各自寫下一小段真實。",
-      button: "進入任務交換",
-      target: "task",
-      chip: "已接受",
-    };
-  }
-
-  if (state.proposalStatus === "later") {
-    return {
-      title: "這封提案已暫放回收件匣，節奏還在你手上",
-      preview: "它不會因為你晚一點再讀就變冷掉。你可以在有餘裕的時候回來決定。",
-      button: "重讀這封提案",
-      target: "proposal",
-      chip: "已暫放",
-    };
-  }
-
-  if (state.proposalStatus === "rejected") {
-    return {
-      title: "你已婉拒這次靠近，這封信目前停在靜置區",
-      preview: "這個原型允許明確地停下來。若只是想看文案流程，仍可重新打開這封提案。",
-      button: "重新查看提案",
-      target: "proposal",
-      chip: "已婉拒",
-    };
-  }
-
-  return {
-    title: "有一封安靜的提案正在等你決定要不要打開",
-    preview: state.proposalCard.preview,
-    button: "閱讀這封提案",
-    target: "proposal",
-    chip: "待閱讀",
-  };
 }
 
 function renderHome() {
   const inboxMeta = buildInboxMeta();
+
   viewSelectors.homeDate.textContent = getTodayText();
-  viewSelectors.homeStatusLine.textContent = state.statusLine;
-  viewSelectors.homeQuestionCopy.textContent = state.questionCopy;
-  viewSelectors.journalEntry.value = state.journalEntry;
-  viewSelectors.sourceHint.textContent = state.sourceHint;
-  viewSelectors.summaryText.textContent = state.summaryText;
-  viewSelectors.sourceDetail.textContent = state.sourceDetail;
-  viewSelectors.sourceExcluded.textContent = demoData.excludedText;
-  viewSelectors.sourceTransparency.textContent = demoData.transparencyText;
-  viewSelectors.inboxTitle.textContent = inboxMeta.title;
-  viewSelectors.inboxPreview.textContent = inboxMeta.preview;
-  viewSelectors.proposalStatusChip.textContent = inboxMeta.chip;
-  viewSelectors.proposalSignal.textContent = state.proposalCard.signal;
-  viewSelectors.proposalPaceHome.textContent = state.proposalCard.pace;
+  viewSelectors.homeStatusLine.textContent = "Today can stay unfinished. Leave only what feels true right now.";
+  viewSelectors.homeQuestionTitle.textContent = "What would you like to leave here today?";
+  viewSelectors.homeQuestionCopy.textContent = "This can sound like today. It doesn't need to restate your first reviewed understanding.";
+  viewSelectors.journalEntry.value = state.journalDraft;
+  viewSelectors.sourceHint.textContent = getHomeDraftHint();
+  viewSelectors.summaryText.textContent = state.reviewedSummary || "We haven't confirmed a reviewed understanding yet.";
+  viewSelectors.sourceDetail.textContent = getOriginalWordsLine();
+  viewSelectors.sourceExcluded.textContent = getReviewedUnderstandingLine();
+  viewSelectors.sourceTransparency.textContent = getIntroductionLayerLine();
+  viewSelectors.boundaryToggle.setAttribute("aria-expanded", String(state.boundaryOpen));
+  viewSelectors.boundaryPanel.hidden = !state.boundaryOpen;
+  viewSelectors.inboxLine.textContent = inboxMeta.line;
   viewSelectors.homeFlowButton.textContent = inboxMeta.button;
   viewSelectors.homeFlowButton.dataset.target = inboxMeta.target;
 }
 
 function renderProposal() {
-  viewSelectors.proposalHeadline.textContent = state.proposalCard.headline;
-  viewSelectors.proposalToneChip.textContent = state.proposalCard.tone;
-  viewSelectors.proposalOpening.textContent = state.proposalCard.opening;
+  viewSelectors.proposalSheet.classList.toggle("is-preview", isPreviewOnly());
+  viewSelectors.proposalToneChip.textContent = isPreviewOnly() ? "Introduction preview" : state.proposalCard.tone;
+  viewSelectors.proposalHeadline.textContent = getProposalHeadlineText();
+  viewSelectors.proposalOpening.textContent = getProposalOpeningText();
   viewSelectors.proposalProfile.textContent = state.proposalCard.profile;
-  viewSelectors.proposalPace.textContent = state.proposalCard.pace;
-  viewSelectors.proposalBasis.textContent = state.proposalCard.basis;
-  viewSelectors.proposalBranchNote.textContent = state.branchNote;
+  viewSelectors.proposalPace.textContent = getProposalPaceText();
+  viewSelectors.proposalBasis.textContent = getProposalBasisText();
+  viewSelectors.proposalBranchNote.textContent = getProposalBranchNote();
   renderProposalReasons();
 
   if (state.taskStatus === "chatting") {
-    viewSelectors.proposalAcceptButton.textContent = "回到對話";
+    viewSelectors.proposalAcceptButton.textContent = isPreviewOnly() ? "Back to preview dialogue" : "Back to dialogue";
     viewSelectors.proposalLaterButton.hidden = true;
     viewSelectors.proposalRejectButton.hidden = true;
   } else if (state.proposalStatus === "accepted") {
-    viewSelectors.proposalAcceptButton.textContent = "進入任務交換";
+    viewSelectors.proposalAcceptButton.textContent = isPreviewOnly() ? "Go to echo preview" : "Go to echo";
     viewSelectors.proposalLaterButton.hidden = true;
     viewSelectors.proposalRejectButton.hidden = true;
   } else {
-    viewSelectors.proposalAcceptButton.textContent = "接受這封提案";
+    viewSelectors.proposalAcceptButton.textContent = isPreviewOnly() ? "Continue with preview" : "Accept this introduction";
+    viewSelectors.proposalLaterButton.textContent = isPreviewOnly() ? "Keep preview for later" : "Keep it for later";
+    viewSelectors.proposalRejectButton.textContent = isPreviewOnly() ? "Pass on this preview" : "Pass on this for now";
     viewSelectors.proposalLaterButton.hidden = false;
     viewSelectors.proposalRejectButton.hidden = false;
   }
+
+  viewSelectors.proposalAcceptButton.classList.toggle("is-preview-action", isPreviewOnly());
 }
 
 function renderTaskLines() {
   viewSelectors.resonanceLines.replaceChildren();
+
   state.matchAnswer
     .replace(/\n+/g, " ")
-    .split(/(?<=[。！？])/u)
+    .split(/(?<=[.!?])/u)
     .map((line) => line.trim())
     .filter(Boolean)
     .slice(0, 4)
@@ -516,30 +893,31 @@ function renderTaskLines() {
       button.className = "button button-line";
       button.dataset.action = "select-line";
       button.dataset.line = line;
-      button.textContent = `「${line}」`;
+      button.textContent = `“${line}”`;
       button.classList.toggle("is-active", state.selectedLine === line);
       viewSelectors.resonanceLines.append(button);
     });
 }
 
 function renderTask() {
-  viewSelectors.taskStatusChip.textContent = state.taskStatus === "answered" || state.taskStatus === "chatting" ? "已送出" : "待完成";
+  viewSelectors.taskTitle.textContent = "Start with one small question";
+  viewSelectors.taskStatusChip.textContent = state.taskStatus === "answered" || state.taskStatus === "chatting" ? "Sent" : "Waiting";
   viewSelectors.taskPrompt.textContent = state.taskPrompt;
   viewSelectors.taskAnswer.value = state.taskAnswer;
   viewSelectors.taskAnswer.readOnly = state.taskStatus !== "ready";
   viewSelectors.taskHint.textContent = state.taskStatus === "ready"
-    ? "送出前，你只需要對自己誠實一點點。"
-    : "對方的回答已揭露。先讀完，再圈一句讓你停住的話。";
+    ? "Before you send it, one honest piece is enough."
+    : "Their answer is open now. Read it once, then choose the line you want to stay with.";
   viewSelectors.taskSubmitButton.disabled = state.taskStatus !== "ready";
-  viewSelectors.taskRevealChip.textContent = state.taskStatus === "ready" ? "尚未開啟" : "已揭露";
+  viewSelectors.taskRevealChip.textContent = state.taskStatus === "ready" ? "Not open yet" : "Open now";
   viewSelectors.taskRevealPlaceholder.hidden = state.taskStatus !== "ready";
   viewSelectors.taskRevealPanel.hidden = state.taskStatus === "ready";
   viewSelectors.matchAnswerText.textContent = state.matchAnswer;
   viewSelectors.resonanceCard.hidden = state.taskStatus === "ready";
   viewSelectors.resonanceReply.value = state.resonanceReply;
   viewSelectors.resonanceHint.textContent = state.selectedLine
-    ? `你圈住了：${state.selectedLine}`
-    : "先選一句，再送出你的短回應。";
+    ? "Stay with this line, then answer in your own words."
+    : "Choose the line you want to stay with, then answer from there.";
   viewSelectors.resonanceSubmitButton.disabled = state.taskStatus === "chatting";
 
   if (state.taskStatus !== "ready") {
@@ -550,8 +928,9 @@ function renderTask() {
 function renderMessages() {
   viewSelectors.messagesPanel.replaceChildren();
   const output = [...state.messages];
+
   if (state.awaitingReply) {
-    output.push({ role: "system", text: "對方正在慢慢寫下一句。" });
+    output.push({ role: "system", text: "They're taking a quiet moment before they answer." });
   }
 
   output.forEach((message) => {
@@ -569,26 +948,48 @@ function renderMessages() {
 function renderChat() {
   const guide = guidePromptMaps[state.guideMode];
   const messageCount = state.messages.filter((message) => message.role !== "system").length;
-  viewSelectors.chatBookmarkTitle.textContent = state.selectedLine ? "從你圈住的那一句開始" : "從剛才交換到的真實開始";
+
+  viewSelectors.chatBookmarkTitle.textContent = state.selectedLine
+    ? "Start from the line you paused on"
+    : "Start from the part that already felt true";
   viewSelectors.chatBookmarkCopy.textContent = state.selectedLine
-    ? `你停在這句：「${state.selectedLine}」`
-    : "你們先交換了回答，再開始聊天。";
+    ? `You stopped on this line: “${state.selectedLine}”`
+      : "You began with one exchanged answer before dialogue opened.";
   viewSelectors.guideModeChip.textContent = guide.label;
   viewSelectors.guideCopy.textContent = guide.copy;
-  viewSelectors.messageCountChip.textContent = `${messageCount} 則往來`;
+  viewSelectors.messageCountChip.textContent = `${messageCount} messages`;
   viewSelectors.chatInput.value = state.chatDraft;
   viewSelectors.chatHint.textContent = state.chatDraft
-    ? "草稿已帶入，可直接修改後送出。"
-    : "可自由輸入，或先點一個扶手帶出草稿。";
+    ? "Your draft is already here. You can shape it before you send."
+      : "Write one honest sentence, or lean on a handrail first.";
+
   viewSelectors.guideButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.guide === state.guideMode);
   });
+
   renderMessages();
 }
 
 function renderApp() {
   renderEntry();
+
   if (!state.entryStarted) {
+    if (state.pendingFocus) {
+      const focusTarget = state.pendingFocus;
+      state.pendingFocus = "";
+      requestAnimationFrame(() => {
+        if (focusTarget === "raw") {
+          viewSelectors.rawInput.focus();
+          viewSelectors.rawInput.setSelectionRange(viewSelectors.rawInput.value.length, viewSelectors.rawInput.value.length);
+        } else if (focusTarget === "summaryEdit") {
+          viewSelectors.summaryEdit.focus();
+          viewSelectors.summaryEdit.setSelectionRange(viewSelectors.summaryEdit.value.length, viewSelectors.summaryEdit.value.length);
+        } else if (focusTarget === "gapFill") {
+          viewSelectors.gapFillAnswer.focus();
+          viewSelectors.gapFillAnswer.setSelectionRange(viewSelectors.gapFillAnswer.value.length, viewSelectors.gapFillAnswer.value.length);
+        }
+      });
+    }
     return;
   }
 
@@ -597,9 +998,7 @@ function renderApp() {
   renderHome();
   renderProposal();
   renderTask();
-  if (state.currentView === "chat") {
-    renderChat();
-  }
+  renderChat();
 
   if (state.pendingFocus) {
     const focusTarget = state.pendingFocus;
@@ -608,40 +1007,417 @@ function renderApp() {
       if (focusTarget === "journal") {
         viewSelectors.journalEntry.focus();
         viewSelectors.journalEntry.setSelectionRange(viewSelectors.journalEntry.value.length, viewSelectors.journalEntry.value.length);
-      } else if (focusTarget === "proposal") {
-        viewSelectors.homeFlowButton.focus();
+      } else if (focusTarget === "chat") {
+        viewSelectors.chatInput.focus();
+        viewSelectors.chatInput.setSelectionRange(viewSelectors.chatInput.value.length, viewSelectors.chatInput.value.length);
       }
     });
   }
 }
 
-/* eventHandlers */
+/* actions */
+function beginOnboarding() {
+  state.step = state.buildSummary ? "freeTalk" : "consent";
+  state.entryHint = "80–180 words is enough.";
+  state.summaryEditHint = "Shape this draft until it feels closer.";
+  state.gapFillHint = "A sentence or two is enough.";
+  state.pendingFocus = state.buildSummary ? "raw" : "";
+  renderApp();
+}
+
+function toggleHow() {
+  state.howVisible = !state.howVisible;
+  renderEntry();
+
+  if (state.howVisible) {
+    requestAnimationFrame(() => {
+      viewSelectors.entryAside.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  }
+}
+
+function continueOnboarding() {
+  if (!state.buildSummary) {
+    state.step = "consent";
+    renderApp();
+    return;
+  }
+
+  const draft = state.rawInput.trim();
+  if (!draft) {
+    state.entryHint = "Leave a few honest lines first. We only need a little.";
+    state.step = "freeTalk";
+    state.pendingFocus = "raw";
+    renderApp();
+    return;
+  }
+
+  const prepared = buildPreparedUnderstanding(draft);
+
+  state.rawInput = draft;
+  state.gapFillAnswer = "";
+  state.needsGapFill = Boolean(prepared.gapFillQuestion);
+  applyPreparedToFlow(prepared);
+  state.step = "reflection";
+  state.pendingFocus = "";
+  renderApp();
+}
+
+function confirmReflection() {
+  state.step = "summaryReview";
+  renderApp();
+}
+
+function markReflectionMissing() {
+  state.needsGapFill = true;
+  if (!state.gapFillQuestion) {
+    state.gapFillQuestion = deriveGapFillQuestion(state.rawInput, true);
+  }
+  state.step = "summaryReview";
+  renderApp();
+}
+
+function adjustSummary() {
+  state.editedSummary = getCurrentSummaryText();
+  state.step = "inlineEdit";
+  state.pendingFocus = "summaryEdit";
+  renderApp();
+}
+
+function acceptSummary() {
+  const summary = getCurrentSummaryText();
+  if (!summary) {
+    state.summaryEditHint = "Shape the draft a little before continuing.";
+    state.step = "inlineEdit";
+    state.pendingFocus = "summaryEdit";
+    renderApp();
+    return;
+  }
+
+  commitReviewedSummary(summary);
+  state.editedSummary = summary;
+  state.step = state.gapFillQuestion ? "gapFill" : "complete";
+  state.pendingFocus = state.step === "gapFill" ? "gapFill" : "";
+  renderApp();
+}
+
+function rejectSummary() {
+  state.needsGapFill = true;
+  if (!state.gapFillQuestion) {
+    state.gapFillQuestion = deriveGapFillQuestion(state.rawInput, true);
+  }
+  state.editedSummary = getCurrentSummaryText();
+  state.step = "inlineEdit";
+  state.pendingFocus = "summaryEdit";
+  renderApp();
+}
+
+function saveSummaryEdit() {
+  const summary = state.editedSummary.trim();
+  if (!summary) {
+    state.summaryEditHint = "Leave at least a little of the summary here.";
+    state.pendingFocus = "summaryEdit";
+    renderApp();
+    return;
+  }
+
+  commitReviewedSummary(summary);
+  state.editedSummary = summary;
+  state.step = state.needsGapFill && state.gapFillQuestion ? "gapFill" : "complete";
+  state.pendingFocus = state.step === "gapFill" ? "gapFill" : "";
+  renderApp();
+}
+
+function submitGapFill() {
+  const answer = state.gapFillAnswer.trim();
+  if (!answer) {
+    state.gapFillHint = "A sentence or two is enough.";
+    state.pendingFocus = "gapFill";
+    renderApp();
+    return;
+  }
+
+  state.gapFillAnswer = answer;
+  state.introductionSafeSummary = buildIntroductionSafeSummary(state.reviewedSummary, answer);
+  state.step = "complete";
+  state.pendingFocus = "";
+  renderApp();
+}
+
+function toggleAssist() {
+  if (state.step === "assist") {
+    state.step = "freeTalk";
+  } else {
+    state.step = "assist";
+  }
+  renderApp();
+}
+
+function useAssist(promptText) {
+  const prompt = `${promptText}\n`;
+  state.rawInput = state.rawInput.trim()
+    ? `${state.rawInput.trim()}\n\n${prompt}`
+    : prompt;
+  state.entryHint = "Use the prompt if it helps, then answer in your own words.";
+  state.step = "assist";
+  state.pendingFocus = "raw";
+  renderApp();
+}
+
+function setView(viewName) {
+  if (!state.entryStarted || !isViewUnlocked(viewName)) {
+    return;
+  }
+
+  state.currentView = viewName;
+  renderApp();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function toggleBoundary() {
+  state.boundaryOpen = !state.boundaryOpen;
+  renderHome();
+}
+
+function submitHomeEntry() {
+  const draft = state.journalDraft.trim();
+
+  if (!draft) {
+      state.homeHintOverride = "Leave a little first. Today only needs one honest paragraph.";
+    state.pendingFocus = "journal";
+    renderApp();
+    return;
+  }
+
+  if (draft === state.journalEntry.trim()) {
+      state.homeHintOverride = "Today is already holding your latest note.";
+    renderHome();
+    return;
+  }
+
+  state.journalDraft = draft;
+  state.journalEntry = draft;
+  state.homeHintOverride = "Today is now holding what you just left here.";
+  renderApp();
+}
+
+function acceptProposal() {
+  if (state.taskStatus === "chatting") {
+    setView("chat");
+    return;
+  }
+
+  if (state.proposalStatus === "accepted") {
+    setView("task");
+    return;
+  }
+
+  state.flowLocked = true;
+  state.proposalStatus = "accepted";
+  state.taskStatus = "ready";
+  setView("task");
+}
+
+function parkProposal() {
+  state.proposalStatus = "later";
+  state.currentView = "home";
+  renderApp();
+}
+
+function rejectProposal() {
+  state.proposalStatus = "rejected";
+  state.currentView = "home";
+  renderApp();
+}
+
+function revealTaskExchange() {
+  if (!state.taskAnswer.trim()) {
+    viewSelectors.taskHint.textContent = "Leave your own answer first. Then their words can open on the other side.";
+    return;
+  }
+
+  state.taskStatus = "answered";
+  renderApp();
+}
+
+function openChatFromResonance() {
+  if (!state.selectedLine) {
+      viewSelectors.resonanceHint.textContent = "Choose the line you want to stay with, then answer from there.";
+    return;
+  }
+
+  if (!state.resonanceReply.trim()) {
+      viewSelectors.resonanceHint.textContent = "Stay with this line, then add a little of your own response.";
+    return;
+  }
+
+  state.taskStatus = "chatting";
+  state.messages = [
+      { role: "system", text: "You began with one exchanged answer before dialogue opened." },
+    { role: "self", text: `I paused on this line: “${state.selectedLine}”\n${state.resonanceReply.trim()}` },
+    { role: "other", text: getFlowPreset().chatIntro },
+  ];
+  state.guideMode = "continue";
+  state.chatDraft = guidePromptMaps.continue.draft(state);
+  state.pendingFocus = "chat";
+  setView("chat");
+}
+
+function applyGuide(mode) {
+  state.guideMode = mode;
+  state.chatDraft = guidePromptMaps[mode].draft(state);
+  renderApp();
+  requestAnimationFrame(() => {
+    viewSelectors.chatInput.focus();
+    viewSelectors.chatInput.setSelectionRange(viewSelectors.chatInput.value.length, viewSelectors.chatInput.value.length);
+  });
+}
+
+function sendMessage() {
+  if (!state.chatDraft.trim()) {
+    viewSelectors.chatHint.textContent = "Write one honest sentence first, then send it.";
+    return;
+  }
+
+  const preset = getFlowPreset();
+  state.messages.push({ role: "self", text: state.chatDraft.trim() });
+  state.chatDraft = "";
+  state.awaitingReply = true;
+  renderApp();
+
+  window.setTimeout(() => {
+    state.awaitingReply = false;
+    state.messages.push({ role: "other", text: preset.replies[state.guideMode] || preset.replies.continue });
+    renderApp();
+  }, 620);
+}
+
+const guidePromptMaps = {
+  continue: {
+    label: "Stay with that line",
+    copy: "Begin from what already felt true, and move only one sentence further.",
+    draft: (currentState) =>
+      `You mentioned “${currentState.selectedLine || "that moment"},” and I'd like to stay with it a little longer. What feeling was strongest there?`,
+  },
+  lighter: {
+    label: "Ease the tone",
+    copy: "If it feels full, step into something smaller without leaving honesty behind.",
+    draft: () => "If we eased the tone for a moment, was there a smaller part of today that softened something in you?",
+  },
+  deeper: {
+    label: "Go one layer deeper",
+    copy: "If there's still room, go one layer deeper without breaking the tone.",
+    draft: () => "If we went one layer deeper, what do you think that moment was really protecting?",
+  },
+  task: {
+    label: "Trade a small prompt",
+    copy: "If the conversation stalls, turn it back into one shared prompt for a moment.",
+    draft: () => "If you'd like, we could trade one small prompt instead: one recent scene we wish someone else had noticed.",
+  },
+  close: {
+    label: "Leave it here for today",
+    copy: "Keep the boundary warm. Stop while the conversation still feels whole tonight.",
+    draft: () => "I think I'll leave it here for today. This already feels like enough in a good way.",
+  },
+};
+
+function completeOnboarding() {
+  if (!state.reviewedSummary.trim()) {
+    commitReviewedSummary(getCurrentSummaryText());
+  }
+
+  if (!state.introductionSafeSummary.trim()) {
+    state.introductionSafeSummary = buildIntroductionSafeSummary(state.reviewedSummary, state.gapFillAnswer);
+  }
+
+  state.entryStarted = true;
+  state.currentView = "home";
+  state.journalEntry = state.rawInput.trim();
+  state.journalDraft = state.rawInput.trim();
+  state.homeHintOverride = "";
+  state.pendingFocus = "journal";
+  renderApp();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function handleActionClick(event) {
   const actionTarget = event.target.closest("[data-action]");
   if (!actionTarget) {
     return;
   }
 
-  const action = actionTarget.dataset.action;
+  const { action } = actionTarget.dataset;
 
-  if (action === "go-home") {
-    setView("home");
+  if (action === "begin-onboarding") {
+    beginOnboarding();
     return;
   }
-  if (action === "start-entry") {
-    startEntry(actionTarget.dataset.entryMode || "browse");
+  if (action === "toggle-how") {
+    toggleHow();
+    return;
+  }
+  if (action === "continue-onboarding") {
+    continueOnboarding();
+    return;
+  }
+  if (action === "confirm-reflection") {
+    confirmReflection();
+    return;
+  }
+  if (action === "reflection-missing") {
+    markReflectionMissing();
+    return;
+  }
+  if (action === "toggle-assist") {
+    toggleAssist();
+    return;
+  }
+  if (action === "use-assist") {
+    useAssist(actionTarget.dataset.assist || "");
+    return;
+  }
+  if (action === "accept-summary") {
+    acceptSummary();
+    return;
+  }
+  if (action === "adjust-summary") {
+    adjustSummary();
+    return;
+  }
+  if (action === "reject-summary") {
+    rejectSummary();
+    return;
+  }
+  if (action === "save-summary-edit") {
+    saveSummaryEdit();
+    return;
+  }
+  if (action === "submit-gap-fill") {
+    submitGapFill();
+    return;
+  }
+  if (action === "complete-onboarding") {
+    completeOnboarding();
+    return;
+  }
+  if (action === "go-home") {
+    setView("home");
     return;
   }
   if (action === "goto") {
     setView(actionTarget.dataset.target);
     return;
   }
-  if (action === "seed-journal") {
-    seedJournalEntry();
-    return;
-  }
   if (action === "open-main-flow") {
     setView(actionTarget.dataset.target || "proposal");
+    return;
+  }
+  if (action === "toggle-boundary") {
+    toggleBoundary();
+    return;
+  }
+  if (action === "submit-home") {
+    submitHomeEntry();
     return;
   }
   if (action === "accept-proposal") {
@@ -677,10 +1453,52 @@ function handleActionClick(event) {
 function bindEvents() {
   document.addEventListener("click", handleActionClick);
 
-  viewSelectors.journalEntry.addEventListener("input", (event) => {
-    state.journalEntry = event.target.value;
-    syncFromJournal();
+  viewSelectors.consentSummary.addEventListener("change", (event) => {
+    state.buildSummary = event.target.checked;
+    if (!state.buildSummary && getStepIndex() < stepOrder.reflection) {
+      state.step = "consent";
+    } else if (state.buildSummary && state.step === "consent") {
+      state.step = "freeTalk";
+      state.pendingFocus = "raw";
+    }
     renderApp();
+  });
+
+  viewSelectors.consentMatching.addEventListener("change", (event) => {
+    state.useSummaryForMatching = event.target.checked;
+    renderApp();
+  });
+
+  viewSelectors.consentRawPrivate.addEventListener("change", (event) => {
+    state.keepRawPrivate = event.target.checked;
+    renderApp();
+  });
+
+  viewSelectors.rawInput.addEventListener("input", (event) => {
+    state.rawInput = event.target.value;
+    state.entryHint = "80–180 words is enough.";
+    if (state.buildSummary && state.step === "consent") {
+      state.step = "freeTalk";
+    }
+    viewSelectors.rawInputHint.textContent = state.entryHint;
+  });
+
+  viewSelectors.summaryEdit.addEventListener("input", (event) => {
+    state.editedSummary = event.target.value;
+    state.summaryEditHint = "Shape this draft until it feels closer.";
+    viewSelectors.summaryEditHint.textContent = state.summaryEditHint;
+  });
+
+  viewSelectors.gapFillAnswer.addEventListener("input", (event) => {
+    state.gapFillAnswer = event.target.value;
+    state.gapFillHint = "A sentence or two is enough.";
+    viewSelectors.gapFillHint.textContent = state.gapFillHint;
+  });
+
+  viewSelectors.journalEntry.addEventListener("input", (event) => {
+    state.journalDraft = event.target.value;
+    state.homeHintOverride = "";
+    viewSelectors.sourceHint.textContent = getHomeDraftHint();
   });
 
   viewSelectors.taskAnswer.addEventListener("input", (event) => {
@@ -701,169 +1519,5 @@ function bindEvents() {
   });
 }
 
-/* flowTransitions */
-function setView(viewName) {
-  if (!state.entryStarted) {
-    return;
-  }
-  if (!isViewUnlocked(viewName)) {
-    return;
-  }
-  state.currentView = viewName;
-  renderApp();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function startEntry(mode) {
-  state.entryStarted = true;
-  state.entryMode = mode;
-  state.currentView = "home";
-
-  if (mode === "demo") {
-    state.journalEntry = demoData.seeds[0];
-    state.seedIndex = 1;
-    syncFromJournal();
-    state.pendingFocus = "proposal";
-  } else if (mode === "journal") {
-    syncFromJournal();
-    state.pendingFocus = "journal";
-  } else {
-    syncFromJournal();
-  }
-
-  renderApp();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-function seedJournalEntry() {
-  state.journalEntry = demoData.seeds[state.seedIndex % demoData.seeds.length];
-  state.seedIndex += 1;
-  syncFromJournal();
-  renderApp();
-}
-
-function acceptProposal() {
-  if (state.taskStatus === "chatting") {
-    setView("chat");
-    return;
-  }
-  if (state.proposalStatus === "accepted") {
-    setView("task");
-    return;
-  }
-
-  state.flowLocked = true;
-  applyThemeToFlow(state.themeId);
-  state.proposalStatus = "accepted";
-  state.taskStatus = "ready";
-  state.branchNote = "你接受了這封提案。下一步會先交換一段回答，等你寫完才揭露對方內容。";
-  setView("task");
-}
-
-function parkProposal() {
-  state.proposalStatus = "later";
-  state.branchNote = "這封信已放回收件匣。你不需要現在決定，稍後再讀也可以。";
-  state.currentView = "home";
-  renderApp();
-}
-
-function rejectProposal() {
-  state.proposalStatus = "rejected";
-  state.branchNote = "這次靠近已停在這裡。原型會保留這個明確的界線，不再往下推。";
-  state.currentView = "home";
-  renderApp();
-}
-
-function revealTaskExchange() {
-  if (!state.taskAnswer.trim()) {
-    viewSelectors.taskHint.textContent = "先寫下一小段回答，這裡才會揭露對方的內容。";
-    return;
-  }
-
-  state.taskStatus = "answered";
-  renderApp();
-}
-
-function openChatFromResonance() {
-  if (!state.selectedLine) {
-    viewSelectors.resonanceHint.textContent = "先圈住一句有感的地方，再送出回應。";
-    return;
-  }
-  if (!state.resonanceReply.trim()) {
-    viewSelectors.resonanceHint.textContent = "你已圈住一句了，再補一小段自己的回應。";
-    return;
-  }
-
-  state.taskStatus = "chatting";
-  state.messages = [
-    { role: "system", text: "你們先交換了回答，再開始對話。" },
-    { role: "self", text: `我停在你這句：「${state.selectedLine}」\n${state.resonanceReply.trim()}` },
-    { role: "other", text: getFlowPreset().chatIntro },
-  ];
-  state.guideMode = "continue";
-  state.chatDraft = guidePromptMaps.continue.draft(state);
-  setView("chat");
-}
-
-function applyGuide(mode) {
-  state.guideMode = mode;
-  state.chatDraft = guidePromptMaps[mode].draft(state);
-  renderApp();
-  requestAnimationFrame(() => {
-    viewSelectors.chatInput.focus();
-    viewSelectors.chatInput.setSelectionRange(viewSelectors.chatInput.value.length, viewSelectors.chatInput.value.length);
-  });
-}
-
-function sendMessage() {
-  if (!state.chatDraft.trim()) {
-    viewSelectors.chatHint.textContent = "先寫一句，再送出。";
-    return;
-  }
-
-  const preset = getFlowPreset();
-  state.messages.push({ role: "self", text: state.chatDraft.trim() });
-  state.chatDraft = "";
-  state.awaitingReply = true;
-  renderApp();
-
-  window.setTimeout(() => {
-    state.awaitingReply = false;
-    state.messages.push({ role: "other", text: preset.replies[state.guideMode] || preset.replies.continue });
-    renderApp();
-  }, 620);
-}
-
-/* guidePromptMaps */
-const guidePromptMaps = {
-  continue: {
-    label: "延續剛才",
-    copy: "接住對方剛剛留下的細節，讓它再往前半步，不急著換新話題。",
-    draft: (currentState) =>
-      `你剛剛提到「${currentState.selectedLine || "那個片刻"}」，我想再多知道一點，那時候你最明顯的感覺是什麼？`,
-  },
-  lighter: {
-    label: "換輕一點",
-    copy: "如果剛剛有點深，可以先回到今天，聊一個比較輕但還是真實的小片段。",
-    draft: () => "如果換輕一點的問題，你今天有沒有一個讓自己稍微鬆一下的小瞬間？",
-  },
-  deeper: {
-    label: "再深一點",
-    copy: "如果兩邊都還有餘裕，可以往情緒底層再多問半步，但不要一下子逼到最深處。",
-    draft: () => "如果可以再深一點，我想知道，那件事背後你最怕失去的是什麼？",
-  },
-  task: {
-    label: "開一個小任務",
-    copy: "卡住時，可以把對話重新變成一個小任務，讓真實有地方放下來。",
-    draft: () => "要不要交換一個小任務：各自寫一句最近最想留住的畫面？",
-  },
-  close: {
-    label: "今天先到這裡",
-    copy: "把今晚停在一個有邊界但不冷掉的位置，讓下次還有空間接著說。",
-    draft: () => "我想先停在這裡，今天和你這樣聊已經很剛好。下次如果你願意，我們可以接著這裡。",
-  },
-};
-
-syncFromJournal();
 bindEvents();
 renderApp();

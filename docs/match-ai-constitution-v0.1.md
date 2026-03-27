@@ -1,3 +1,5 @@
+> 回到主索引 / 主上下文文件：[Project Brief](./project-brief.md)
+
 # Match AI 原始憲法草案 v0.1
 
 **Match AI 不是在做一個更聰明的交友軟體，而是在設計一種更不浪費人的相遇方式。**
